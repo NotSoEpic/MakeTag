@@ -1,7 +1,12 @@
 import sys
 
-if len(sys.argv) != 5:
-    raise SyntaxError("Incorrect syntax, use \"py maketag.py tags.csv addtags.csv newtags.csv basetag.csv\"")
+if len(sys.argv) == 5:
+    tags = open(sys.argv[1], "r").read()
+    addtags = open(sys.argv[2], "r").read()
+    newtags = open(sys.argv[3], "w")
+    basetag = sys.argv[4]
+else:
+    raise SyntaxError("Incorrect syntax, use \"maketag.exe tags.csv addtags.csv newtags.csv basetag.csv\"")
 
 tags = open(sys.argv[1], "r").read()
 addtags = open(sys.argv[2], "r").read()
@@ -20,6 +25,9 @@ for i in range(len(starttags)):
         for j in range(len(startaddtags)):
             startaddtags[j].split(",")
             endouttags.insert(i + j + 1, startaddtags[j] + "," + ",".join(concatlist))
-print(endouttags)
 
 newtags.write("\n".join(endouttags))
+
+print(endouttags)
+
+a = input("press enter to continue")
