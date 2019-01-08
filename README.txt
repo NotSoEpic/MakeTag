@@ -1,7 +1,12 @@
 USE
-go to the directory with py file/executable
-type in "py maketag.py/exe tags.csv addtags.csv newtags.csv mytag"
-where tags.csv and addtags.csv will be the input files and newtags.csv will be the output files
+
+maketag.exe [tag file] [addtags file] [newtags file] [basetag] [tagindent]
+
+tag file is the base file
+addtags file is the tags to add under the basetag in the tag file when its found
+newtags file is the file that will be created
+basetag is the tag to look for
+tagindent is what indent to look for with the basetag (starts at 1)
 
 ORIGINAL SPECIFICATIONS
 
@@ -58,4 +63,8 @@ newtag4,6,2,3,4,5,6,7,UN,A,5,4,3,2,1
 qtag,1,2,3,2,5,6,7,UN,A,5,4,3,2,1
 wtag,1,2,4,9,5,6,7,UN,A,5,4,3,2,1
 etag,8,2,3,4,5,6,7,UN,A,5,4,3,2,1
-rtag,9,2,3,4,5,6,7,UN,A,5,4,3,2,1 
+rtag,9,2,3,4,5,6,7,UN,A,5,4,3,2,1
+
+UPDATED SPECIFICATIONS
+
+add a way to check any indent (still only chaging the first colum in the duplicated rows)
