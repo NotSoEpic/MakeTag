@@ -1,2 +1,2 @@
-py -m nuitka --follow-imports maketag.py
+py setup.py build
 pause

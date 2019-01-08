@@ -39,11 +39,12 @@ for i in range(len(starttags)):
     try:
         if starttags[i][tagindent - 1] == basetag:
             foundtag = True
-            concatlist = starttags[i]
-            del concatlist[0]
             for j in range(len(startaddtags)):
-                startaddtags[j].split(",")
-                endouttags.insert(i + j + 1, startaddtags[j] + "," + ",".join(concatlist))
+                toreplace = starttags[i][0]
+                replacewith = startaddtags[j]
+                within = tags.split("\n")[i]
+                replaced = within.replace(toreplace, replacewith)
+                endouttags.insert(i + j + 1, replaced)
     except IndexError:
         pass
 
