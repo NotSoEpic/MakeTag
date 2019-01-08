@@ -8,6 +8,10 @@ newtags file is the file that will be created
 basetag is the tag to look for
 tagindent is what indent to look for with the basetag (starts at 1)
 
+to build executable from maketag.py run buildexe.bat
+
+requires cx_freeze
+
 ORIGINAL SPECIFICATIONS
 
 Hi Tom
