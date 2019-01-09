@@ -1,12 +1,17 @@
 USE
 
-maketag.exe [tag file] [addtags file] [newtags file] [basetag] [tagindent]
+maketag.exe (tag file) (addtags file) (newtags file) (basetag) /i[tagindent] /p[precisesearch]
+
+(required) /_[optional]
 
 tag file is the base file
 addtags file is the tags to add under the basetag in the tag file when its found
 newtags file is the file that will be created
 basetag is the tag to look for
-tagindent is what indent to look for with the basetag (starts at 1)
+tagindent is what indent to look for with the basetag, starts at 1  (default: 1)
+precisesearch is whether to look for exactly the basetag (default: True)
+
+
 
 to build executable from maketag.py run buildexe.bat
 
@@ -71,4 +76,5 @@ rtag,9,2,3,4,5,6,7,UN,A,5,4,3,2,1
 
 UPDATED SPECIFICATIONS
 
-add a way to check any indent (still only chaging the first colum in the duplicated rows)
+add a way to check any indent (still only chaging the first column in the duplicated rows)
+add a loose search which just searches if the tag is in a row
