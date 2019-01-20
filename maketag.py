@@ -9,6 +9,9 @@
 
 import sys
 
+true = ["True", "true"]
+false = ["False", "false"]
+
 tagindent = 1
 preciseSearch = True
 if len(sys.argv) == 5:
@@ -29,9 +32,9 @@ elif len(sys.argv) >= 6:
         if command == "/i":
             tagindent = int(arg)
         if command == "/p":
-            if arg in ["true", "True"]:
+            if arg in true:
                 preciseSearch = True
-            elif arg in ["false", "False"]:
+            elif arg in false:
                 preciseSearch = False
             else:
                 print("WARNING: neither true or false supplied for preciseSearch, defaulting to True")
@@ -48,6 +51,8 @@ basetag = sys.argv[4]
 starttags = tags.split("\n")
 endouttags = tags.split("\n")
 startaddtags = addtags.split("\n")
+startaddtags = list(filter(None, startaddtags))
+print(startaddtags)
 
 foundtag = False
 indentoffset = 1
@@ -68,7 +73,7 @@ for i in range(len(starttags)):
             for j in range(len(startaddtags)):
                 indentoffset += 1
                 print("Added tag on row" + str(i + indentoffset))
-                toreplace = starttags[i][0]
+                toreplace = starttags[i][tagindent - 1]
                 replacewith = startaddtags[j]
                 within = tags.split("\n")[i]
                 replaced = within.replace(toreplace, replacewith)
